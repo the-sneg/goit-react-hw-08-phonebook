@@ -50,7 +50,7 @@ export class App extends Component {
         <h1 className={s.title}>Phonebook</h1>
         <Form onSubmit={this.onSubmit} />
 
-        <h2>Contacts</h2>
+        <h2 className={s.title}>Contacts</h2>
         <Filter value={filter} onChange={this.onFilter} />
 
         <ContactList

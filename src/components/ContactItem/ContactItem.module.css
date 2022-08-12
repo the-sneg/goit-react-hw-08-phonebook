@@ -1,0 +1,8 @@
+.item {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.delete {
+    margin-left: 10px;
+}

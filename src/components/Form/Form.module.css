@@ -21,8 +21,7 @@ border-radius: 20px;
 padding: 5px;
 border: 1px solid #184aff;
 background: aliceblue;
-transition: background 250ms;
-transition: transform 250ms;
+transition: transform, background 250ms;
 }
 .button:hover {
     background: #6baae1;

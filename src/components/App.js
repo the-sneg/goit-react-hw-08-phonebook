@@ -6,9 +6,30 @@ import s from './App.module.css';
 
 export class App extends Component {
   state = {
-    contacts: [],
+    contacts: [
+      { id: 'id-1', name: 'Вася Джонсон', number: '589-12-224' },
+      { id: 'id-2', name: 'Валерій Коперфілд', number: '323-89-124' },
+      { id: 'id-3', name: 'Джавеліна Бавовна', number: '544-17-791' },
+      { id: 'id-4', name: 'Олег Сміт', number: '227-41-222' },
+      { id: 'id-5', name: 'Вікторія Насамс', number: '257-91-263' },
+    ],
     filter: '',
   };
+
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
 
   onSubmit = data => {
     let findName = this.state.contacts.find(item => item.name === data.name);

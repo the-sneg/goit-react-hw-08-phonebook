@@ -1,16 +1,19 @@
 import React from 'react';
-import s from './Filter.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilter } from '../../store/reducer';
 
-export const Filter = ({ value, onChange }) => {
+export const Filter = () => {
+  const value = useSelector(state => state.contactsSlice.contacts.filter.value);
+  const dispatch = useDispatch();
+
+  const onChange = e => {
+    dispatch(setFilter(e.target.value));
+  };
+
   return (
-    <label className={s.filterLable}>
+    <label>
       Find contacts by name
-      <input
-        className={s.input}
-        type="text"
-        value={value}
-        onChange={onChange}
-      />
+      <input type="text" value={value} onChange={onChange} />
     </label>
   );
 };

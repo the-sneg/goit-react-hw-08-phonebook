@@ -1,9 +1,33 @@
 .item {
     list-style: none;
     margin-bottom: 5px;
+    word-break: break-word;
+    border: 1px solid rgb(97, 131, 3);
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .delete {
-    margin: 6px 0 0 150px;
+    margin: 6px 0 0 140px;
+    border-radius: 5px;
+    border: 1px solid rgb(97, 131, 3);
+    transition: box-shadow 250ms, color 250ms;
 
+}
+
+.delete:hover {
+    box-shadow: rgba(48, 107, 134, 0.863) 0px 30px 60px -12px inset, 
+    rgba(56, 31, 31, 0.904) 0px 18px 36px -18px inset;
+    color: antiquewhite;
+}
+
+.name {
+    display: inline-block;
+    font-weight: 500;
+    margin: 0;
+}
+
+.number {
+    display: inline-block;
+    margin: 0;
 }

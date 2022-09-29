@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
-import { setContact } from '../../store/reducer';
+import { addContacts } from '../../store/reducer';
 import s from './Form.module.css';
 
 let inputNameId = nanoid();
@@ -9,25 +9,23 @@ let inputTelId = nanoid();
 
 export function Form() {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const [id, setId] = useState('');
+  const [phone, setPhone] = useState('');
   const contacts = useSelector(state => state.contactsSlice.contacts.items);
   const dispatch = useDispatch();
 
   const handleInputChange = e => {
     const { name, value } = e.target;
-    setId(nanoid());
 
     if (name === 'name') {
       return setName(value);
     } else if (name === 'number') {
-      return setNumber(value);
+      return setPhone(value);
     }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    let data = { name, number, id };
+    let data = { name, phone };
     let findName = contacts.find(
       item => item.name.toLowerCase() === data.name.toLowerCase()
     );
@@ -35,7 +33,7 @@ export function Form() {
     if (findName) {
       return alert(`${data.name} is already in contact`);
     } else {
-      dispatch(setContact(data));
+      dispatch(addContacts(data));
     }
 
     reset();
@@ -43,10 +41,9 @@ export function Form() {
 
   const reset = () => {
     setName('');
-    setNumber('');
-    setId('');
+    setPhone('');
   };
-
+  const isAdd = useSelector(state => state.contactsSlice.isAdd);
   return (
     <div>
       <form onSubmit={handleSubmit} className={s.form}>
@@ -71,7 +68,7 @@ export function Form() {
         <input
           onInput={handleInputChange}
           className={s.input}
-          value={number}
+          value={phone}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -80,7 +77,7 @@ export function Form() {
           id={inputTelId}
         />
 
-        <button type="submit" className={s.button}>
+        <button type="submit" disabled={isAdd} className={s.button}>
           Add contact
         </button>
       </form>

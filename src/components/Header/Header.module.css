@@ -1,0 +1,112 @@
+.header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    height: 100px;
+    background-image: url(/src/img/header-img.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+}
+
+.main {
+    text-align: center;
+    /* background-image: linear-gradient(to right, 
+    rgba(0, 0, 0, 0.2), 
+    rgba(0, 0, 0, 0.2)),
+     url(/src/img/main.jpg); */
+    padding: 20px 15px;
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+.footer {
+    background-color:wheat;
+}
+
+
+.video {
+
+    display: block;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    position: fixed;
+    z-index: -1;
+    -o-object-fit: contain;
+    object-fit: cover;
+
+}
+
+.home {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.home:before {
+    content: "";
+    background: linear-gradient(45deg,
+            #ff0000,
+            #ff7300,
+            #fffb00,
+            #48ff00,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.home:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}

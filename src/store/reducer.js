@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const initialState = {
   error: '',
@@ -12,7 +13,6 @@ const initialState = {
     },
   },
 };
-
 const setError = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
@@ -20,18 +20,9 @@ const setError = (state, action) => {
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchContacts',
-  async function (_, { rejectWithValue }) {
+  async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch(
-        'https://63358cbe8aa85b7c5d1dc3e5.mockapi.io/contacts'
-      );
-
-      if (!response.ok) {
-        throw new Error('Error:(');
-      }
-
-      const data = await response.json();
-
+      const { data } = await axios.get('/contacts');
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -41,19 +32,9 @@ export const fetchContacts = createAsyncThunk(
 
 export const deleteContacts = createAsyncThunk(
   'contacts/deleteContacts',
-  async function (id, { rejectWithValue, dispatch }) {
+  async (id, { rejectWithValue, dispatch }) => {
     try {
-      const response = await fetch(
-        `https://63358cbe8aa85b7c5d1dc3e5.mockapi.io/contacts/${id}`,
-        {
-          method: 'DELETE',
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error('Sorry cant delete:(');
-      }
-
+      await axios.delete(`/contacts/${id}`);
       dispatch(removeContact(id));
     } catch (error) {
       return rejectWithValue(error.message);
@@ -63,27 +44,14 @@ export const deleteContacts = createAsyncThunk(
 
 export const addContacts = createAsyncThunk(
   'contacts/addContacts',
-  async function (data, { rejectWithValue, dispatch }) {
+  async (credentials, { rejectWithValue, dispatch }) => {
     try {
       const contact = {
-        name: data.name,
-        phone: data.phone,
+        name: credentials.name,
+        number: credentials.phone,
       };
 
-      const response = await fetch(
-        `https://63358cbe8aa85b7c5d1dc3e5.mockapi.io/contacts`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(contact),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error('Sorry cant add contact:(');
-      }
+      const { data } = await axios.post('contacts', contact);
 
       dispatch(setContact(data));
     } catch (error) {

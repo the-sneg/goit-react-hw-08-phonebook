@@ -11,7 +11,7 @@ export const ContactItem = ({ item }) => {
   return (
     <li className={s.item}>
       <p className={s.name}>{item.name}</p> :{' '}
-      <p className={s.number}>{item.phone}</p>
+      <p className={s.number}>{item.number}</p>
       <button
         type="button"
         className={s.delete}

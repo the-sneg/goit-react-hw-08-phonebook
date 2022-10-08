@@ -1,7 +1,4 @@
-.filterLable {
-display: flex;
-flex-direction: column;
-} 
+
 
 .input {
 width: 200px;
@@ -10,4 +7,12 @@ height: 20px;
 border-radius: 4px;
 border: 1px solid #184aff;
 outline-color: #6baae1;
+}
+
+.label {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 0 auto;
 }

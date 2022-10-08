@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../store/userReducer';
 import { nanoid } from 'nanoid';
+import s from '../Login/Login.module.css';
 
 let inputEmailId = nanoid();
 let inputPasswordId = nanoid();
@@ -30,18 +31,18 @@ export const Login = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h2 className="text-2xl text-center">Login</h2>
-        <p className="my-3 text-center">
+        <h2 className={s.title}>Login</h2>
+        <p className={s.subtitle}>
           Please fill in this form to login an account.
         </p>
 
-        <div className="flex flex-col my-3 items-center border bg-gray-200 ">
-          <label className="my-2" htmlFor={inputEmailId}>
+        <div className={s.wrap}>
+          <label className={s.email} htmlFor={inputEmailId}>
             <b>Email</b>
           </label>
           <input
             onInput={handleInputChange}
-            className="border rounded-xl px-2 w-1/2 mb-3 "
+            className={s.input}
             value={email}
             type="text"
             placeholder="Enter Email"
@@ -50,12 +51,12 @@ export const Login = () => {
             id={inputEmailId}
           ></input>
 
-          <label className="my-2" htmlFor={inputPasswordId}>
+          <label className={s.password} htmlFor={inputPasswordId}>
             <b>Password</b>
           </label>
           <input
             onInput={handleInputChange}
-            className="border rounded-xl px-2 w-1/2 mb-3 "
+            className={s.input}
             value={password}
             type="password"
             placeholder="Enter Password"
@@ -65,19 +66,14 @@ export const Login = () => {
           ></input>
         </div>
 
-        <p className="text-center">
+        <p className={s.dont}>
           Don't have account?
-          <NavLink className="text-sky-500 underline ml-1" to="/registration">
+          <NavLink className={s.sign} to="/registration">
             Sign up
           </NavLink>
         </p>
 
-        <button
-          className="border rounded-xl bg-orange-600 py-1 px-3
-                 hover:text-white display: flex items-center justify-center m-auto
-                 my-3  "
-          type="submit"
-        >
+        <button className={s.btn} type="submit">
           Login
         </button>
       </form>

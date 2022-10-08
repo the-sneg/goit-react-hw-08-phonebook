@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../../../store/userReducer';
 import { nanoid } from 'nanoid';
+import s from '../Registration/Registration.module.css';
 
 let inputEmailId = nanoid();
 let inputNameId = nanoid();
@@ -34,17 +35,17 @@ export const Registration = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h2 className="text-2xl text-center">Registration</h2>
-        <p className="my-3 text-center">
+        <h2 className={s.title}>Registration</h2>
+        <p className={s.subtitle}>
           Please fill in this form to create an account.
         </p>
-        <div className="flex flex-col my-3 items-center border bg-gray-200 ">
-          <label className="my-2" htmlFor={inputEmailId}>
+        <div className={s.wrap}>
+          <label className={s.email} htmlFor={inputEmailId}>
             <b>Email</b>
           </label>
           <input
             onInput={handleInputChange}
-            className="border rounded-xl px-2 w-1/2 "
+            className={s.input}
             value={email}
             type="text"
             placeholder="Enter Email"
@@ -53,12 +54,12 @@ export const Registration = () => {
             id={inputEmailId}
           ></input>
 
-          <label className="my-2" htmlFor={inputPasswordId}>
+          <label className={s.password} htmlFor={inputPasswordId}>
             <b>Password</b>
           </label>
           <input
             onInput={handleInputChange}
-            className="border rounded-xl px-2 w-1/2 "
+            className={s.input}
             value={password}
             type="password"
             placeholder="Enter Password"
@@ -67,12 +68,12 @@ export const Registration = () => {
             id={inputPasswordId}
           ></input>
 
-          <label className="my-2" htmlFor={inputNameId}>
+          <label className={s.name} htmlFor={inputNameId}>
             <b>Name</b>
           </label>
           <input
             onInput={handleInputChange}
-            className="border rounded-xl px-2 w-1/2 mb-3 "
+            className={s.input}
             value={name}
             type="text"
             placeholder="Enter Name"
@@ -82,20 +83,15 @@ export const Registration = () => {
           ></input>
         </div>
 
-        <p className="text-center">
-          Already have an account?
-          <NavLink className="text-sky-500 underline ml-1" to="/login">
+        <p className={s.haveacc}>
+          Have an account?
+          <NavLink className={s.signin} to="/login">
             Sign in
           </NavLink>
           .
         </p>
 
-        <button
-          className="border rounded-xl bg-orange-600 py-1 px-3
-                 hover:text-white display: flex items-center justify-center m-auto
-                 my-3  "
-          type="submit"
-        >
+        <button className={s.btn} type="submit">
           Sign up
         </button>
       </form>

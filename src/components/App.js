@@ -6,7 +6,7 @@ import { PrivateRoutes } from 'components/UserMenu/PrivateRoutes';
 import { Header } from './Header/Header';
 import { Home } from './pages/Home/Home';
 import { Contacts } from './pages/Contacts/Contacts';
-import { Registration } from './pages/Registarion/Registarion';
+import { Registration } from './pages/Registration/Registration';
 import { Login } from './pages/Login/Login';
 import { Logout } from './pages/Logout/Logout';
 import { NotFound } from './pages/NotFound/NotFound';

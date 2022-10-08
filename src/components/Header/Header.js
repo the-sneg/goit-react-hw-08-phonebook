@@ -27,7 +27,6 @@ export const Header = () => {
             muted
             loop
           ></video>
-          ;
         </div>
       </main>
       <footer className={s.footer}>

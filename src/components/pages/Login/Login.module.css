@@ -36,3 +36,13 @@
     margin-left: 5px;
     cursor: pointer;
 }
+
+.input {
+    width: 200px;
+    height: 20px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #f37806;
+    outline-color: #f7ad3f;
+    margin: 0 auto;
+}

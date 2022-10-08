@@ -14,20 +14,17 @@
 
 .main {
     text-align: center;
-    /* background-image: linear-gradient(to right, 
-    rgba(0, 0, 0, 0.2), 
-    rgba(0, 0, 0, 0.2)),
-     url(/src/img/main.jpg); */
+    background-color: #000000d1;
     padding: 20px 15px;
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 500px;
+    height: 100vh;
 }
 
 .footer {
 text-align: center;
-background: transparent;
+background-color: #000000d1;
 color: snow;
 }
 

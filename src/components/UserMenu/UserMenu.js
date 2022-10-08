@@ -4,7 +4,7 @@ import s from '../UserMenu/UserMenu.module.css'
 
 export default function UserMenu() {
   return (
-    <div>
+    <div className={s.wrap}>
       <NavLink
         to="/contacts"
         className={s.contacts}

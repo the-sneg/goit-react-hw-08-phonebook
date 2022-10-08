@@ -10,7 +10,7 @@ export const ContactItem = ({ item }) => {
   const isDeleting = useSelector(state => state.contactsSlice.isDeleting);
   return (
     <li className={s.item}>
-      <p className={s.name}>{item.name}</p> :{' '}
+      <p className={s.name}>{item.name}:</p>
       <p className={s.number}>{item.number}</p>
       <button
         type="button"

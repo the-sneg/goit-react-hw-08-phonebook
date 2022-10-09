@@ -32,7 +32,7 @@
 } 
 
 .sign {
-    color: aqua;
+    color: #f7ad3f;
     margin-left: 5px;
     cursor: pointer;
 }
@@ -44,5 +44,9 @@
     border-radius: 4px;
     border: 1px solid #f37806;
     outline-color: #f7ad3f;
-    margin: 0 auto;
+    margin: 5px  auto 10px;
+}
+
+.title {
+    margin-bottom: 30px;
 }

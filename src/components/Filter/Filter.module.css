@@ -5,8 +5,10 @@ width: 200px;
 margin-top: 10px;
 height: 20px;
 border-radius: 4px;
-border: 1px solid #184aff;
-outline-color: #6baae1;
+border: 1px solid #f76d1d;
+outline-color: #f88d01;
+margin-top: 10px;
+margin-bottom: 10px;
 }
 
 .label {
@@ -15,4 +17,5 @@ outline-color: #6baae1;
     flex-direction: column;
     width: 200px;
     margin: 0 auto;
+    
 }

@@ -32,9 +32,7 @@ export const Login = () => {
     <>
       <form onSubmit={handleSubmit}>
         <h2 className={s.title}>Login</h2>
-        <p className={s.subtitle}>
-          Please fill in this form to login an account.
-        </p>
+        
 
         <div className={s.wrap}>
           <label className={s.email} htmlFor={inputEmailId}>

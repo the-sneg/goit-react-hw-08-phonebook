@@ -36,9 +36,6 @@ export const Registration = () => {
     <>
       <form onSubmit={handleSubmit}>
         <h2 className={s.title}>Registration</h2>
-        <p className={s.subtitle}>
-          Please fill in this form to create an account.
-        </p>
         <div className={s.wrap}>
           <label className={s.email} htmlFor={inputEmailId}>
             <b>Email</b>

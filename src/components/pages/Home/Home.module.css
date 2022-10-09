@@ -11,10 +11,10 @@ animation: 4s 1 alternate opacity;
 
 @keyframes opacity {
     from {
-        opacity: 0;
+        color: transparent;
     }
 
     to {
-        opacity: 1;
+        color: #fff;
     }
 }
